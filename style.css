@@ -1,0 +1,417 @@
+/* ============================================================
+   NERON_CORE // DASHBOARD STYLES
+   Brutalist / Industrial Cyberpunk
+   ============================================================ */
+
+:root {
+  --bg-core:      #020204;
+  --bg-surface:   #07080d;
+  --bg-elevated:  #0b0d14;
+  --edge:         #1a1f2c;
+  --edge-hot:     #06b6d4;
+  --accent:       #06b6d4;
+  --accent-dim:   #0a4f5e;
+  --warn:         #f59e0b;
+  --text:         #c9d1d9;
+  --text-dim:     #5b6472;
+  --text-faint:   #363c47;
+  --danger:       #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html, body {
+  background: var(--bg-core);
+  color: var(--text);
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+body {
+  padding: 12px;
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ---------- HEADER ---------- */
+.sys-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.glyph {
+  color: var(--accent);
+  font-size: 16px;
+  letter-spacing: -2px;
+}
+
+.sys-name {
+  color: var(--text);
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.status-field {
+  color: var(--warn);
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: crosshair;
+  padding: 4px 10px;
+  border: 1px solid var(--warn);
+  user-select: none;
+  transition: none;
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.status-field:hover {
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.meta {
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.meta.amber { color: var(--warn); }
+
+/* ---------- GRID ROOT ---------- */
+.grid-root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sector {
+  border: 1px solid var(--edge);
+  background: var(--bg-surface);
+  padding: 0;
+}
+
+.sector-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 2px solid var(--edge);
+  background: var(--bg-elevated);
+}
+
+.sector-head h2 {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.sector-meta {
+  color: var(--text-faint);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---------- CARD GRID ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-right: 1px solid var(--edge);
+  border-bottom: 1px solid var(--edge);
+  background: var(--bg-surface);
+  position: relative;
+  transition: none;
+}
+
+.card:hover {
+  background: var(--bg-elevated);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--edge);
+}
+
+.card-top .meta {
+  color: var(--accent-dim);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.vol {
+  color: var(--warn);
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.card-title {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 6px rgba(6, 182, 212, 0.35);
+}
+
+.card-desc {
+  color: var(--text-dim);
+  font-size: 11.5px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+/* ---------- SPEC TABLE ---------- */
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+  font-size: 10.5px;
+}
+
+.specs td {
+  padding: 4px 8px;
+  border: 1px solid var(--edge);
+  letter-spacing: 1px;
+}
+
+.specs td:first-child {
+  color: var(--text-faint);
+  width: 40%;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.specs td:last-child {
+  color: var(--accent);
+  text-align: right;
+  font-weight: 700;
+}
+
+/* ---------- ACTION BUTTON ---------- */
+.action-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 12px;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  position: relative;
+  transition: none;
+  user-select: none;
+}
+
+.action-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+}
+
+.action-btn:active {
+  transform: translate(1px, 1px);
+}
+
+/* ---------- FOOTER / SHADER BLOCK ---------- */
+.sys-footer {
+  margin-top: 12px;
+  border: 1px solid var(--edge);
+  border-top: 3px solid var(--accent);
+  background: var(--bg-surface);
+}
+
+.footer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--edge);
+  background: var(--bg-elevated);
+}
+
+.footer-head h2 {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.glsl-block {
+  margin: 0;
+  padding: 20px;
+  background: #05060a !important;
+  border: none;
+  overflow-x: auto;
+  max-height: 560px;
+  font-family: inherit;
+  font-size: 11.5px;
+  line-height: 1.65;
+  border-left: 3px solid var(--warn);
+}
+
+.glsl-block code {
+  font-family: inherit;
+  color: var(--text);
+  text-shadow: none;
+  background: transparent !important;
+}
+
+/* Prism override: purge rounded corners */
+pre[class*="language-"],
+code[class*="language-"] {
+  border-radius: 0 !important;
+  background: transparent !important;
+  text-shadow: none !important;
+}
+
+.token.comment { color: #4b5563 !important; font-style: italic; }
+.token.keyword { color: var(--accent) !important; font-weight: 700; }
+.token.function { color: var(--warn) !important; }
+.token.number   { color: #a78bfa !important; }
+.token.string   { color: #86efac !important; }
+.token.operator { color: #f472b6 !important; }
+.token.punctuation { color: #94a3b8 !important; }
+.token.builtin  { color: #38bdf8 !important; }
+
+/* ---------- FOOTNOTE ---------- */
+.sys-footnote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--edge);
+  background: var(--bg-surface);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---------- PANIC / BSOD ---------- */
+.panic-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0078d7;
+  color: #ffffff;
+  z-index: 9999;
+  display: none;
+  padding: 6vw 8vw;
+  font-family: 'Segoe UI', 'JetBrains Mono', sans-serif;
+  cursor: none;
+  user-select: none;
+}
+
+.panic-overlay.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bsod-content {
+  max-width: 900px;
+}
+
+.bsod-face {
+  font-size: 120px;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 32px;
+  color: #ffffff;
+}
+
+.bsod-text {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  color: #ffffff;
+  max-width: 760px;
+}
+
+.bsod-progress {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 48px;
+  color: #ffffff;
+}
+
+.bsod-details p {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #ffffff;
+  opacity: 0.92;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-core); }
+::-webkit-scrollbar-thumb {
+  background: var(--edge);
+  border: 1px solid var(--bg-surface);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 720px) {
+  .sys-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .header-right { flex-wrap: wrap; }
+  .card-grid { grid-template-columns: 1fr; }
+  .bsod-face { font-size: 72px; }
+  .bsod-text { font-size: 16px; }
+}
