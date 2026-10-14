@@ -2,7 +2,7 @@
 html{-webkit-text-size-adjust:100%}
 img{max-width:100%;display:block}
 a{color:inherit}
-button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;text-align:left}
 
 :root{
   --bg:#0c0c0c;
@@ -28,10 +28,11 @@ body{
 h1,h2,h3{line-height:1.2;font-weight:600;letter-spacing:-.02em}
 h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;letter-spacing:-.03em}
 h2{font-size:1.75rem;font-weight:600;letter-spacing:-.02em}
-h3{font-size:1.25rem;letter-spacing:-.015em}
+h3{font-size:1.125rem;letter-spacing:-.015em;margin-top:32px;margin-bottom:12px;color:var(--text)}
 
 p{color:var(--muted);font-size:1rem}
 
+/* HEADER */
 header{
   position:sticky;top:0;z-index:50;
   background:rgba(12,12,12,.85);
@@ -61,6 +62,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--accent);background:rgba(255,176,0,.08)}
 
+/* PANELS */
 .panel{display:none;padding:96px 0;border-bottom:1px solid var(--border);min-height:calc(100vh - 64px - 96px)}
 .panel.active{display:block;animation:fade .25s ease}
 @keyframes fade{
@@ -68,27 +70,39 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
   to{opacity:1;transform:translateY(0)}
 }
 
+/* HOME */
 .home{padding-top:40px}
 .home h1{margin-bottom:24px}
 .home .lead{font-size:1.35rem;color:var(--text);max-width:680px;line-height:1.5;font-weight:400}
 .home-actions{margin-top:40px;display:flex;gap:12px;flex-wrap:wrap}
 
+/* SECTION HEADS */
 .section-head{margin-bottom:48px}
 .section-sub{margin-top:10px;font-size:1.0625rem}
 
+/* PROJECT LIST */
 .list{display:flex;flex-direction:column}
-.item{padding:32px 0;border-top:1px solid var(--border)}
+.item{
+  display:block;
+  width:100%;
+  padding:32px 0;
+  border-top:1px solid var(--border);
+  transition:padding .15s, opacity .15s;
+}
 .item:first-child{border-top:none;padding-top:0}
+.item:hover h3{color:var(--accent)}
 .item-head{
   display:flex;align-items:baseline;justify-content:space-between;
   gap:16px;margin-bottom:12px;flex-wrap:wrap;
 }
+.item h3{transition:color .15s}
 .item-tag{
   font-family:'JetBrains Mono',monospace;
   font-size:.75rem;color:var(--accent);
   letter-spacing:.02em;
 }
 .item p{max-width:640px;font-size:.9375rem}
+
 .tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin-top:16px}
 .tags li{
   font-family:'JetBrains Mono',monospace;
@@ -99,6 +113,50 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
   letter-spacing:.02em;
 }
 
+/* DETAIL VIEW */
+.detail{animation:fade .25s ease}
+.back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8125rem;
+  color:var(--muted);
+  padding:6px 0;
+  margin-bottom:32px;
+  transition:color .15s;
+}
+.back:hover{color:var(--accent)}
+
+.detail-head{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.detail-head h2{margin-bottom:6px}
+.detail-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.8125rem;
+  color:var(--accent);
+  letter-spacing:.02em;
+}
+
+.detail-body{max-width:680px}
+.detail-body p{font-size:1rem;color:var(--muted);line-height:1.7}
+.detail-body p + p{margin-top:12px}
+.detail-body ul:not(.tags){
+  list-style:none;
+  margin-top:8px;
+}
+.detail-body ul:not(.tags) li{
+  font-size:.9375rem;
+  color:var(--muted);
+  padding:6px 0 6px 18px;
+  position:relative;
+}
+.detail-body ul:not(.tags) li::before{
+  content:'';
+  position:absolute;
+  left:0;top:15px;
+  width:6px;height:1px;
+  background:var(--accent);
+}
+
+/* BUTTONS */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:12px 22px;border-radius:6px;
@@ -110,6 +168,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .btn.primary{background:var(--accent);color:#0c0c0c;border-color:transparent;font-weight:600}
 .btn.primary:hover{background:#ffc233}
 
+/* CONTACT */
 .contact{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
 .mail{
   font-family:'JetBrains Mono',monospace;
@@ -127,12 +186,14 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 }
 .links a:hover{color:var(--text)}
 
+/* FOOTER */
 footer{padding:48px 0;text-align:center}
 footer p{
   font-family:'JetBrains Mono',monospace;
   font-size:.75rem;color:var(--muted);letter-spacing:.05em;
 }
 
+/* MOBILE */
 @media (max-width:640px){
   .wrap{padding:0 20px}
   .panel{padding:56px 0;min-height:auto}
