@@ -3,329 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio: Ju3060TI</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-glsl.min.js" defer></script>
+<title>Portfolio Ju3060TI</title>
+<meta name="description" content="Developer focused on systems programming, graphics and local AI inference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="panic-overlay" class="panic-overlay" aria-hidden="true">
-  <div class="bsod-content">
-    <div class="bsod-face">:(</div>
-    <p class="bsod-text">Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.</p>
-    <p class="bsod-progress"><span id="bsod-percent">0</span>% complete</p>
-    <div class="bsod-details">
-      <p>For more information about this issue and possible fixes, visit https://www.windows.com/stopcode</p>
-      <p>If you call a support person, give them this info:</p>
-      <p>Stop code: CRITICAL_PROCESS_DIED</p>
-      <p>What failed: neron_core.sys (0xFF02_EVICT_FAILURE)</p>
-    </div>
-  </div>
-</div>
-
-<header class="sys-header">
-  <div class="header-left">
-    <span class="glyph">▚</span>
-    <span class="sys-name">NERON_CORE // DASHBOARD_v3.7</span>
-  </div>
-  <div class="header-center">
-    <span id="status-field" class="status-field" title="[ dbl-click ]">[ RUNNING // SECURE ]</span>
-  </div>
-  <div class="header-right">
-    <span class="meta">NODE: JU3060TI</span>
-    <span class="meta">UPTIME: <span id="uptime">00:00:00</span></span>
-    <span class="meta amber">LAT: 12ms</span>
+<header>
+  <div class="wrap">
+    <a href="/" class="logo">Ju</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main class="grid-root">
+<main>
 
-  <section class="sector" data-sector="CORE_SYSTEMS">
-    <div class="sector-head">
-      <h2>[ CORE_SYSTEMS ]</h2>
-      <span class="sector-meta">03 MODULES // VERIFIED</span>
+<section class="hero">
+  <div class="wrap">
+    <p class="tag">Developer</p>
+    <h1>I build performant software from the ground up.</h1>
+    <p class="sub">Systems programming, real-time graphics and local AI inference. Currently at HTL Leonding, Computer Science.</p>
+    <div class="actions">
+      <a href="#work" class="btn primary">View work</a>
+      <a href="mailto:hello@example.com" class="btn">Get in touch</a>
     </div>
-    <div class="card-grid">
+  </div>
+</section>
 
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // RUNTIME</span>
-          <span class="vol">VOLUME: 8.4 GB</span>
-        </div>
-        <h3 class="card-title">HYPERION_KERNEL</h3>
-        <p class="card-desc">Low-level scheduler kernel tuned for heterogeneous GPU/CPU task eviction. Deterministic ticks, zero-copy IPC.</p>
-        <table class="specs">
-          <tr><td>ARCH</td><td>x86_64 / AVX-512</td></tr>
-          <tr><td>THREADS</td><td>256 POOL</td></tr>
-          <tr><td>LATENCY</td><td>&lt; 40µs</td></tr>
-          <tr><td>BUILD</td><td>RELEASE_OPT</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/hyperion-kernel" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
+<section id="work" class="section">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <div class="grid">
 
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // DAEMON</span>
-          <span class="vol">VOLUME: 1.2 GB</span>
-        </div>
-        <h3 class="card-title">VOIDWATCH_DAEMON</h3>
-        <p class="card-desc">Background supervisor that watches for GPU memory leaks, thermal drift and silent compute stalls. Auto-restart on anomaly.</p>
-        <table class="specs">
-          <tr><td>LANG</td><td>C++20 / RUST FFI</td></tr>
-          <tr><td>MEM</td><td>14 MB RESIDENT</td></tr>
-          <tr><td>SIGNALS</td><td>SIGKILL / SIGSTOP</td></tr>
-          <tr><td>BUILD</td><td>STATIC_LINK</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/voidwatch-daemon" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
+      <a class="card" href="#">
+        <div class="thumb"><img src="assets/neron.png" alt="NERON"></div>
+        <h3>NERON AI</h3>
+        <p class="role">Local inference engine</p>
+        <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
+        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+      </a>
 
-      <article class="card">
-        <div class="meta-row"></div>
-        <div class="card-top">
-          <span class="meta">MODULE // FS</span>
-          <span class="vol">VOLUME: 3.9 GB</span>
-        </div>
-        <h3 class="card-title">OBSIDIAN_VFS</h3>
-        <p class="card-desc">Virtual filesystem layer with journaled writes, cold-storage tiering and per-process mount namespaces.</p>
-        <table class="specs">
-          <tr><td>IOPS</td><td>1.2M R / 480K W</td></tr>
-          <tr><td>JOURNAL</td><td>WRITE-AHEAD</td></tr>
-          <tr><td>TIERS</td><td>HOT / WARM / COLD</td></tr>
-          <tr><td>BUILD</td><td>KERNEL_MODULE</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/obsidian-vfs" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
+      <a class="card" href="#">
+        <div class="thumb"><img src="assets/blocks.png" alt="Blocks"></div>
+        <h3>Blocks</h3>
+        <p class="role">3D voxel engine</p>
+        <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
+        <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+      </a>
+
+      <a class="card" href="#">
+        <div class="thumb"><img src="assets/browser.png" alt="Mörser-Karl GX"></div>
+        <h3>Mörser-Karl GX</h3>
+        <p class="role">Desktop application</p>
+        <p>Isolated web browser with a custom interface and built-in access protection. Built as a secure shell for in-house web apps.</p>
+        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+      </a>
+
+      <a class="card" href="#">
+        <div class="thumb"><img src="assets/flarechat.png" alt="Flarechat"></div>
+        <h3>Flarechat</h3>
+        <p class="role">Web application</p>
+        <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the custom browser environment.</p>
+        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+      </a>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="sector" data-sector="AI_COMPUTE">
-    <div class="sector-head">
-      <h2>[ AI_COMPUTE ]</h2>
-      <span class="sector-meta">03 MODULES // TRAINED</span>
+<section id="about" class="section alt">
+  <div class="wrap narrow">
+    <h2>About</h2>
+    <p>I program with a focus on systems languages and performance-critical applications. My interest is in how software works at the lowest level — from memory management to graphics pipelines to inference on local hardware.</p>
+    <p>Currently attending HTL Leonding with a focus on computer science. Alongside school I work on personal projects in systems programming, computer graphics and machine learning.</p>
+    <div class="skills">
+      <div>
+        <h4>Languages</h4>
+        <ul><li>Rust</li><li>C++</li><li>C#</li><li>TypeScript</li></ul>
+      </div>
+      <div>
+        <h4>Focus</h4>
+        <ul><li>Systems programming</li><li>Computer graphics</li><li>GPU computing</li><li>Inference optimization</li></ul>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul><li>Git</li><li>CMake</li><li>CUDA Toolkit</li><li>Linux</li></ul>
+      </div>
     </div>
-    <div class="card-grid">
+  </div>
+</section>
 
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // TENSOR</span>
-          <span class="vol">VOLUME: 24.7 GB</span>
-        </div>
-        <h3 class="card-title">NERON_TRANSFORMER</h3>
-        <p class="card-desc">Custom 3.4B parameter dense transformer trained on code and technical corpora. Flash-attention v3, bf16 weights.</p>
-        <table class="specs">
-          <tr><td>PARAMS</td><td>3.4 BILLION</td></tr>
-          <tr><td>CTX</td><td>32,768 TOKENS</td></tr>
-          <tr><td>VRAM</td><td>8.9 GB @ bf16</td></tr>
-          <tr><td>TOK/S</td><td>~148 (RTX)</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/neron-transformer" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // DIFFUSION</span>
-          <span class="vol">VOLUME: 12.1 GB</span>
-        </div>
-        <h3 class="card-title">SPECTRE_DIFFUSER</h3>
-        <p class="card-desc">Latent diffusion pipeline with custom controlnet stack for architectural and industrial renders. Trained from scratch.</p>
-        <table class="specs">
-          <tr><td>UNET</td><td>860M PARAMS</td></tr>
-          <tr><td>VAE</td><td>F8 / 4CH LATENT</td></tr>
-          <tr><td>STEPS</td><td>20-40 DPM++</td></tr>
-          <tr><td>RES</td><td>1024x1024</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/spectre-diffuser" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // VISION</span>
-          <span class="vol">VOLUME: 5.6 GB</span>
-        </div>
-        <h3 class="card-title">ARGUS_VISION</h3>
-        <p class="card-desc">Real-time object detection and pose estimation pipeline. Quantized int8, TensorRT-accelerated, 120fps target.</p>
-        <table class="specs">
-          <tr><td>BACKBONE</td><td>CSP-DARKNET-X</td></tr>
-          <tr><td>CLASSES</td><td>80 COCO</td></tr>
-          <tr><td>FPS</td><td>118 @ 1080p</td></tr>
-          <tr><td>PREC</td><td>INT8 / FP16</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/argus-vision" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
-
+<section id="contact" class="section">
+  <div class="wrap narrow center">
+    <h2>Contact</h2>
+    <p class="muted">For project inquiries, internships or collaboration.</p>
+    <a href="mailto:hello@example.com" class="btn primary">Send an email</a>
+    <div class="links">
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </section>
-
-  <section class="sector" data-sector="DEVELOPMENT_ASSETS">
-    <div class="sector-head">
-      <h2>[ DEVELOPMENT_ASSETS ]</h2>
-      <span class="sector-meta">02 MODULES // STAGED</span>
-    </div>
-    <div class="card-grid">
-
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // SHADERS</span>
-          <span class="vol">VOLUME: 0.4 GB</span>
-        </div>
-        <h3 class="card-title">GLSL_FORGE_PACK</h3>
-        <p class="card-desc">Curated collection of native GLSL compute and fragment shaders: raymarching, SDF modeling, volumetric fog, tonemapping.</p>
-        <table class="specs">
-          <tr><td>SHADERS</td><td>128 FILES</td></tr>
-          <tr><td>TARGET</td><td>GLSL 4.60 / VK</td></tr>
-          <tr><td>LICENSE</td><td>MIT</td></tr>
-          <tr><td>PIPELINE</td><td>SPIR-V READY</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/glsl-forge-pack" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
-
-      <article class="card">
-        <div class="card-top">
-          <span class="meta">MODULE // TOOLKIT</span>
-          <span class="vol">VOLUME: 2.3 GB</span>
-        </div>
-        <h3 class="card-title">IRONFORGE_SDK</h3>
-        <p class="card-desc">Cross-platform build and deployment toolkit. Deterministic toolchains, reproducible builds, hermetic sandboxes.</p>
-        <table class="specs">
-          <tr><td>PLATFORMS</td><td>WIN / LINUX / MAC</td></tr>
-          <tr><td>TOOLS</td><td>42 BINARIES</td></tr>
-          <tr><td>BUILD</td><td>HERMETIC</td></tr>
-          <tr><td>FORMAT</td><td>NINJA / BAZEL</td></tr>
-        </table>
-        <a class="action-btn" href="https://drive.google.com/drive/folders/ironforge-sdk" target="_blank" rel="noopener">ACCESS_FOLDER ↗</a>
-      </article>
-
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
-<footer class="sys-footer">
-  <div class="footer-head">
-    <h2>[ NATIVE_GLSL // SHADER_SOURCE ]</h2>
-    <span class="sector-meta">FILE: raymarch_sdf.glsl // GLSL 4.60</span>
+<footer>
+  <div class="wrap">
+    <p>© 2026 Ju</p>
+    <p><a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></p>
   </div>
-  <pre class="glsl-block"><code class="language-glsl">#version 460 core
-
-// --- neron_core :: raymarch_sdf.glsl ---
-// Signed distance field raymarcher with soft shadows
-// and exponential fog. Compiled for GL_KHR_vulkan_glsl.
-
-layout(location = 0) out vec4 fragColor;
-layout(location = 0) in  vec2 vUV;
-
-uniform vec2  uResolution;
-uniform float uTime;
-uniform vec3  uCamPos;
-
-const int   MAX_STEPS = 128;
-const float MAX_DIST  = 64.0;
-const float SURF_EPS  = 0.0008;
-
-float sdSphere(vec3 p, float r) {
-    return length(p) - r;
-}
-
-float sdBox(vec3 p, vec3 b) {
-    vec3 q = abs(p) - b;
-    return length(max(q, 0.0)) + min(max(q.x, max(q.y, q.z)), 0.0);
-}
-
-float sdSmoothUnion(float a, float b, float k) {
-    float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
-    return mix(b, a, h) - k * h * (1.0 - h);
-}
-
-float map(vec3 p) {
-    float t = uTime * 0.35;
-    vec3  q = p;
-    q.xz = mat2(cos(t), -sin(t), sin(t), cos(t)) * q.xz;
-
-    float sphere = sdSphere(q - vec3(0.0, 0.9, 0.0), 0.85);
-    float boxA   = sdBox(p - vec3(-1.4, 0.4, 0.0), vec3(0.55));
-    float boxB   = sdBox(p - vec3( 1.4, 0.4, 0.0), vec3(0.55));
-
-    float d = sdSmoothUnion(sphere, boxA, 0.35);
-    d = sdSmoothUnion(d, boxB, 0.35);
-
-    // ground plane
-    d = min(d, p.y + 0.02);
-    return d;
-}
-
-vec3 calcNormal(vec3 p) {
-    vec2 e = vec2(SURF_EPS, 0.0);
-    return normalize(vec3(
-        map(p + e.xyy) - map(p - e.xyy),
-        map(p + e.yxy) - map(p - e.yxy),
-        map(p + e.yyx) - map(p - e.yyx)
-    ));
-}
-
-float softShadow(vec3 ro, vec3 rd, float mint, float maxt, float k) {
-    float res = 1.0;
-    float t   = mint;
-    for (int i = 0; i &lt; 48; i++) {
-        float h = map(ro + rd * t);
-        if (h &lt; 0.001) return 0.0;
-        res = min(res, k * h / t);
-        t  += clamp(h, 0.02, 0.5);
-        if (t &gt; maxt) break;
-    }
-    return clamp(res, 0.0, 1.0);
-}
-
-vec3 render(vec3 ro, vec3 rd) {
-    float t = 0.0;
-    bool  hit = false;
-    for (int i = 0; i &lt; MAX_STEPS; i++) {
-        vec3  p = ro + rd * t;
-        float d = map(p);
-        if (d &lt; SURF_EPS) { hit = true; break; }
-        t += d;
-        if (t &gt; MAX_DIST) break;
-    }
-
-    vec3 col = vec3(0.02, 0.02, 0.04);
-    if (hit) {
-        vec3 p = ro + rd * t;
-        vec3 n = calcNormal(p);
-        vec3 lightDir = normalize(vec3(0.6, 0.8, 0.4));
-        float diff = clamp(dot(n, lightDir), 0.0, 1.0);
-        float sh   = softShadow(p + n * 0.01, lightDir, 0.02, 12.0, 12.0);
-        vec3  base = vec3(0.024, 0.714, 0.831); // #06b6d4 accent
-        col  = base * diff * sh + vec3(0.02) * n.y;
-    }
-
-    // exponential fog
-    float fog = 1.0 - exp(-0.05 * t * t);
-    col = mix(col, vec3(0.008, 0.008, 0.016), fog);
-    return col;
-}
-
-void main() {
-    vec2 uv = (vUV * uResolution - 0.5 * uResolution) / uResolution.y;
-    vec3 ro = uCamPos;
-    vec3 rd = normalize(vec3(uv, 1.4));
-
-    vec3 col = render(ro, rd);
-
-    // hard tonemap — no gradients
-    col = clamp(col, 0.0, 1.0);
-    col = floor(col * 64.0) / 64.0; // posterize: brutalist banding
-
-    fragColor = vec4(col, 1.0);
-}</code></pre>
 </footer>
 
-<div class="sys-footnote">
-  <span class="meta">© NERON_CORE // BUILT FROM SCRATCH // NO FRAMEWORKS</span>
-  <span class="meta amber">COMPILE. MEASURE. DELIVER.</span>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
