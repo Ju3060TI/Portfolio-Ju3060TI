@@ -26,6 +26,7 @@
 
 <main>
 
+<!-- HOME -->
 <section class="panel active" data-panel="home">
   <div class="wrap">
     <div class="home">
@@ -39,54 +40,154 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section class="panel" data-panel="projects">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Projects</h2>
-      <p class="section-sub">A selection of software I've built.</p>
+
+    <!-- LIST -->
+    <div id="projects-list">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="section-sub">A selection of software I've built.</p>
+      </div>
+
+      <div class="list">
+
+        <button class="item" data-project="neron">
+          <div class="item-head">
+            <h3>NERON AI</h3>
+            <span class="item-tag">Local inference engine</span>
+          </div>
+          <p>Multi-agent system with 22B parameters running fully local on a single GPU.</p>
+          <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+        </button>
+
+        <button class="item" data-project="blocks">
+          <div class="item-head">
+            <h3>Blocks</h3>
+            <span class="item-tag">3D voxel engine</span>
+          </div>
+          <p>Real-time engine for infinite voxel worlds with procedurally generated terrain.</p>
+          <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+        </button>
+
+        <button class="item" data-project="moerser">
+          <div class="item-head">
+            <h3>Mörser-Karl GX</h3>
+            <span class="item-tag">Custom web browser</span>
+          </div>
+          <p>Isolated browser with its own interface and a built-in access shield.</p>
+          <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+        </button>
+
+        <button class="item" data-project="flarechat">
+          <div class="item-head">
+            <h3>Flarechat</h3>
+            <span class="item-tag">Web application</span>
+          </div>
+          <p>Chat platform with groups, friend system and a private mode.</p>
+          <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+        </button>
+
+      </div>
     </div>
-    <div class="list">
 
-      <article class="item">
-        <div class="item-head">
-          <h3>NERON AI</h3>
-          <span class="item-tag">Local inference engine</span>
-        </div>
-        <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
-        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
-      </article>
+    <!-- DETAIL: NERON -->
+    <div class="detail" data-detail="neron" hidden>
+      <button class="back" data-back>← Back</button>
+      <div class="detail-head">
+        <h2>NERON AI</h2>
+        <p class="detail-tag">Local inference engine</p>
+      </div>
+      <div class="detail-body">
+        <p>NERON is a fully local inference engine built around a 22B parameter sparse mixture-of-experts architecture. It runs entirely on a single consumer GPU without any cloud dependency.</p>
+        <h3>What it does</h3>
+        <p>Multiple specialized agents run in parallel and route requests through a shared memory bus. The entire pipeline stays on-device — no network calls, no external APIs.</p>
+        <h3>Technical highlights</h3>
+        <ul>
+          <li>Zero-copy shared memory IPC between agents</li>
+          <li>Sub-4ms latency per inference step</li>
+          <li>Sparse routing to keep VRAM usage low</li>
+          <li>Written from scratch in Rust with custom CUDA kernels</li>
+        </ul>
+        <h3>Stack</h3>
+        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li><li>ONNX</li></ul>
+      </div>
+    </div>
 
-      <article class="item">
-        <div class="item-head">
-          <h3>Blocks</h3>
-          <span class="item-tag">3D voxel engine</span>
-        </div>
-        <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
+    <!-- DETAIL: MaJuTiKi: BLOCKS -->
+    <div class="detail" data-detail="blocks" hidden>
+      <button class="back" data-back>← Back</button>
+      <div class="detail-head">
+        <h2>MaJuTiKi: Blocks</h2>
+        <p class="detail-tag">3D voxel engine</p>
+      </div>
+      <div class="detail-body">
+        <p>A real-time voxel engine designed for infinite worlds. Terrain is generated procedurally on the fly with no loading screens and constant memory usage.</p>
+        <h3>What it does</h3>
+        <p>Worlds are computed from closed-form fractal functions, meaning the same coordinates always produce the same terrain — no storage needed, no loading.</p>
+        <h3>Technical highlights</h3>
+        <ul>
+          <li>Closed-form fractal terrain generation</li>
+          <li>Heap-allocation-free render loop</li>
+          <li>Custom GLSL shaders for chunked rendering</li>
+          <li>Infinite world with no visible boundaries</li>
+        </ul>
+        <h3>Stack</h3>
         <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
-          <h3>Mörser-Karl GX</h3>
-          <span class="item-tag">Custom web browser</span>
-        </div>
-        <p>Isolated browser with its own interface and a built-in access shield. Built as a sandboxed environment for private web apps — everything runs inside its own shell, outside the regular web.</p>
-        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
-          <h3>Flarechat</h3>
-          <span class="item-tag">Web application</span>
-        </div>
-        <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the Mörser-Karl GX browser environment.</p>
-        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
-      </article>
-
+      </div>
     </div>
+
+    <!-- DETAIL: MÖRSER-KARL GX -->
+    <div class="detail" data-detail="moerser" hidden>
+      <button class="back" data-back>← Back</button>
+      <div class="detail-head">
+        <h2>Mörser-Karl GX</h2>
+        <p class="detail-tag">Custom web browser</p>
+      </div>
+      <div class="detail-body">
+        <p>A self-contained browser with its own shell, custom interface and a built-in access shield. Designed as a sandboxed environment for private web apps that shouldn't touch the regular web.</p>
+        <h3>What it does</h3>
+        <p>Everything runs inside an isolated shell. Only whitelisted apps are reachable — the regular internet stays out. Its own error page doubles as an access gate.</p>
+        <h3>Technical highlights</h3>
+        <ul>
+          <li>Custom UI layer over WebView</li>
+          <li>Fake error page as access shield</li>
+          <li>Isolated session — no shared cookies with system browser</li>
+          <li>Hosts internal apps like Flarechat</li>
+        </ul>
+        <h3>Stack</h3>
+        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+      </div>
+    </div>
+
+    <!-- DETAIL: FLARECHAT -->
+    <div class="detail" data-detail="flarechat" hidden>
+      <button class="back" data-back>← Back</button>
+      <div class="detail-head">
+        <h2>Flarechat</h2>
+        <p class="detail-tag">Web application</p>
+      </div>
+      <div class="detail-body">
+        <p>A chat platform with groups, a friend system based on 6-digit IDs and a built-in stealth mode. Runs entirely inside the Mörser-Karl GX browser environment.</p>
+        <h3>What it does</h3>
+        <p>Users add each other via short IDs, chat in groups or directly, and can toggle a private mode that hides the interface behind a decoy view.</p>
+        <h3>Technical highlights</h3>
+        <ul>
+          <li>Real-time messaging over WebSockets</li>
+          <li>6-digit ID friend system</li>
+          <li>Group chats with role handling</li>
+          <li>Integrated stealth mode</li>
+        </ul>
+        <h3>Stack</h3>
+        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- DOWNLOADS -->
 <section class="panel" data-panel="downloads">
   <div class="wrap">
     <div class="section-head">
@@ -100,6 +201,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="panel" data-panel="contact">
   <div class="wrap">
     <div class="section-head">
