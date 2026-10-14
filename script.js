@@ -1,39 +1,52 @@
+// ---------- TABS ----------
 const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.panel');
+
+// ---------- PROJECTS ----------
 const list = document.getElementById('projects-list');
 const details = document.querySelectorAll('.detail');
 
-function show(target) {
+// ---------- TAB SWITCHING ----------
+function showTab(target) {
+  // Tabs umschalten
   tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === target));
+  // Panels umschalten
   panels.forEach(p => p.classList.toggle('active', p.dataset.panel === target));
-  // reset projects view when leaving/entering
-  list.hidden = false;
+
+  // Projekt-Detail zurücksetzen: immer Liste zeigen
+  if (list) list.hidden = false;
   details.forEach(d => d.hidden = true);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// Tab-Buttons
 tabs.forEach(tab => {
-  tab.addEventListener('click', () => show(tab.dataset.tab));
+  tab.addEventListener('click', () => showTab(tab.dataset.tab));
 });
 
+// Buttons im Home-Panel ("View projects", "Downloads")
 document.querySelectorAll('[data-goto]').forEach(btn => {
-  btn.addEventListener('click', () => show(btn.dataset.goto));
+  btn.addEventListener('click', () => showTab(btn.dataset.goto));
 });
 
-// open project detail
+// ---------- PROJECT DETAIL OPEN ----------
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('click', () => {
     const id = item.dataset.project;
-    list.hidden = true;
-    details.forEach(d => d.hidden = d.dataset.detail !== id);
+    if (!id) return;
+    if (list) list.hidden = true;
+    details.forEach(d => {
+      d.hidden = d.dataset.detail !== id;
+    });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
-// back to list
+// ---------- PROJECT DETAIL CLOSE (Back-Button) ----------
 document.querySelectorAll('[data-back]').forEach(btn => {
   btn.addEventListener('click', () => {
-    list.hidden = false;
+    if (list) list.hidden = false;
     details.forEach(d => d.hidden = true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
