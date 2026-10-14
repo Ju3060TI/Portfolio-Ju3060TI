@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Ju3060TI</title>
+<title>Ju3060TI — Developer</title>
 <meta name="description" content="Developer focused on systems programming, graphics and local AI inference.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a href="/" class="logo">Ju</a>
+    <a href="/" class="logo">Ju<span>3060TI</span></a>
     <nav>
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -27,7 +27,7 @@
 
 <section class="hero">
   <div class="wrap">
-    <p class="tag">Developer</p>
+    <p class="tag">Developer &amp; Systems Programmer</p>
     <h1>I build performant software from the ground up.</h1>
     <p class="sub">Systems programming, real-time graphics and local AI inference. Currently at HTL Leonding, Computer Science.</p>
     <div class="actions">
@@ -39,39 +39,50 @@
 
 <section id="work" class="section">
   <div class="wrap">
-    <h2>Selected work</h2>
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p class="muted">A focused selection of current projects.</p>
+    </div>
     <div class="grid">
 
       <a class="card" href="#">
         <div class="thumb"><img src="assets/neron.png" alt="NERON"></div>
-        <h3>NERON AI</h3>
-        <p class="role">Local inference engine</p>
-        <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
-        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+        <div class="card-body">
+          <h3>NERON AI</h3>
+          <p class="role">Local inference engine</p>
+          <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
+          <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+        </div>
       </a>
 
       <a class="card" href="#">
         <div class="thumb"><img src="assets/blocks.png" alt="Blocks"></div>
-        <h3>Blocks</h3>
-        <p class="role">3D voxel engine</p>
-        <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
-        <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+        <div class="card-body">
+          <h3>Blocks</h3>
+          <p class="role">3D voxel engine</p>
+          <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
+          <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+        </div>
       </a>
 
       <a class="card" href="#">
         <div class="thumb"><img src="assets/browser.png" alt="Mörser-Karl GX"></div>
-        <h3>Mörser-Karl GX</h3>
-        <p class="role">Desktop application</p>
-        <p>Isolated web browser with a custom interface and built-in access protection. Built as a secure shell for in-house web apps.</p>
-        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+        <div class="card-body">
+          <h3>Mörser-Karl GX</h3>
+          <p class="role">Desktop application</p>
+          <p>Isolated web browser with a custom interface and built-in access protection. Built as a secure shell for in-house web apps.</p>
+          <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+        </div>
       </a>
 
       <a class="card" href="#">
         <div class="thumb"><img src="assets/flarechat.png" alt="Flarechat"></div>
-        <h3>Flarechat</h3>
-        <p class="role">Web application</p>
-        <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the custom browser environment.</p>
-        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+        <div class="card-body">
+          <h3>Flarechat</h3>
+          <p class="role">Web application</p>
+          <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the custom browser environment.</p>
+          <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+        </div>
       </a>
 
     </div>
@@ -116,7 +127,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Ju</p>
+    <p>© 2026 Ju3060TI</p>
     <p><a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></p>
   </div>
 </footer>
