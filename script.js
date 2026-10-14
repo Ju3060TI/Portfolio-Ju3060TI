@@ -1,15 +1,15 @@
 /* ============================================================
-   Tabs + Project Detail
+   TABS
    ============================================================ */
 const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.panel');
-const list = document.getElementById('projects-list');
-const details = document.querySelectorAll('.detail');
 
 function showTab(target) {
   tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === target));
   panels.forEach(p => p.classList.toggle('active', p.dataset.panel === target));
 
+  const list = document.getElementById('projects-list');
+  const details = document.querySelectorAll('.detail');
   if (list) list.hidden = false;
   details.forEach(d => d.hidden = true);
 
@@ -24,12 +24,18 @@ document.querySelectorAll('[data-goto]').forEach(btn => {
   btn.addEventListener('click', () => showTab(btn.dataset.goto));
 });
 
+/* ============================================================
+   PROJECT DETAIL VIEW
+   ============================================================ */
+const projectsList = document.getElementById('projects-list');
+const detailViews = document.querySelectorAll('.detail');
+
 document.querySelectorAll('.item').forEach(item => {
   item.addEventListener('click', () => {
     const id = item.dataset.project;
     if (!id) return;
-    if (list) list.hidden = true;
-    details.forEach(d => {
+    if (projectsList) projectsList.hidden = true;
+    detailViews.forEach(d => {
       d.hidden = d.dataset.detail !== id;
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,23 +44,26 @@ document.querySelectorAll('.item').forEach(item => {
 
 document.querySelectorAll('[data-back]').forEach(btn => {
   btn.addEventListener('click', () => {
-    if (list) list.hidden = false;
-    details.forEach(d => d.hidden = true);
+    if (projectsList) projectsList.hidden = false;
+    detailViews.forEach(d => d.hidden = true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
 /* ============================================================
-   GitHub Repos — Live Load
+   HELPERS
    ============================================================ */
-const GH_USER = 'Ju3060TI';
-const GH_API = `https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=12`;
-
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = String(str);
   return div.innerHTML;
 }
+
+/* ============================================================
+   GITHUB REPOS
+   ============================================================ */
+const GH_USER = 'Ju3060TI';
+const GH_API = `https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=12`;
 
 function renderRepos(repos) {
   return repos.map(repo => `
@@ -74,9 +83,9 @@ function renderRepos(repos) {
 
 function renderFallback() {
   const items = [
-    { name: 'NERON-AI',          lang: 'Rust', desc: 'Custom inference engine built around a Sparse Mixture-of-Experts architecture.' },
-    { name: 'MaJuTiKi-Blocks',   lang: 'C#',   desc: '3D voxel & automation engine on Vulkan. Infinite worlds, delta-stored.' },
-    { name: 'Solis-Shaders',     lang: 'GLSL', desc: 'Modular real-time shader collection with a shared lighting core.' }
+    { name: 'NERON-AI',        lang: 'Rust', desc: 'Custom inference engine built around a Sparse Mixture-of-Experts architecture.' },
+    { name: 'MaJuTiKi-Blocks', lang: 'C#',   desc: '3D voxel & automation engine on Vulkan. Infinite worlds, delta-stored.' },
+    { name: 'Solis-Shaders',   lang: 'GLSL', desc: 'Modular real-time shader collection with a shared lighting core.' }
   ];
   return items.map(r => `
     <div class="repo-card fallback">
@@ -116,7 +125,7 @@ async function loadRepos() {
 
     container.innerHTML = renderRepos(filtered);
   } catch (err) {
-    console.warn('[GitHub] Falling back to placeholders:', err.message);
+    console.warn('[GitHub] Fallback:', err.message);
     container.innerHTML = renderFallback();
   }
 }
@@ -124,73 +133,58 @@ async function loadRepos() {
 loadRepos();
 
 /* ============================================================
-   Drive Folder Browser
-   ============================================================
-   Add `link` to any folder object to point a specific tile to
-   its real Drive subfolder. If omitted, the root link is used.
+   DRIVE FOLDER BROWSER
    ============================================================ */
-const ROOT_LINK = 'https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing';
-
 const DRIVE = {
   name: 'Portfolio Ju3060TI',
-  link: ROOT_LINK,
   folders: [
     {
       name: 'Builds',
-      link: ROOT_LINK,
       folders: [
         {
           name: 'AI',
-          link: ROOT_LINK,
           folders: [
-            { name: 'Neron', link: ROOT_LINK, folders: [] }
+            { name: 'Neron', folders: [] }
           ]
         },
         {
           name: 'Games',
-          link: ROOT_LINK,
           folders: [
-            { name: 'MaJuTiKi',               link: ROOT_LINK, folders: [] },
-            { name: 'MaJuTiKi: Blocks',       link: ROOT_LINK, folders: [] },
-            { name: 'MaJuTiKi: Fragment',     link: ROOT_LINK, folders: [] },
-            { name: 'MaJuTiKi: Hollow Creek', link: ROOT_LINK, folders: [] }
+            { name: 'MaJuTiKi',               folders: [] },
+            { name: 'MaJuTiKi: Blocks',       folders: [] },
+            { name: 'MaJuTiKi: Fragment',     folders: [] },
+            { name: 'MaJuTiKi: Hollow Creek', folders: [] }
           ]
         },
         {
           name: 'Websites',
-          link: ROOT_LINK,
           folders: [
-            { name: 'FlareChat',              link: ROOT_LINK, folders: [] },
-            { name: 'Mörser-Karl-GX-Browser', link: ROOT_LINK, folders: [] }
+            { name: 'FlareChat',              folders: [] },
+            { name: 'Mörser-Karl-GX-Browser', folders: [] }
           ]
         }
       ]
     },
     {
       name: 'Screenshots / Videos',
-      link: ROOT_LINK,
       folders: [
-        { name: 'Screenshots', link: ROOT_LINK, folders: [] },
-        { name: 'Videos',      link: ROOT_LINK, folders: [] }
+        { name: 'Screenshots', folders: [] },
+        { name: 'Videos',      folders: [] }
       ]
     },
-    {
-      name: 'Archive',
-      link: ROOT_LINK,
-      folders: []
-    }
+    { name: 'Archive', folders: [] }
   ]
 };
 
 const crumbEl = document.getElementById('drive-crumb');
 const contentEl = document.getElementById('drive-content');
 
-let currentStack = [DRIVE];
+let driveStack = [DRIVE];
 
 function renderDrive() {
   if (!crumbEl || !contentEl) return;
 
-  const current = currentStack[currentStack.length - 1];
+  const current = driveStack[driveStack.length - 1];
 
   // Breadcrumb
   let crumbHTML = `
@@ -200,8 +194,8 @@ function renderDrive() {
     My Drive
   `;
 
-  currentStack.forEach((node, i) => {
-    const isLast = i === currentStack.length - 1;
+  driveStack.forEach((node, i) => {
+    const isLast = i === driveStack.length - 1;
     crumbHTML += `<span class="drive-sep">/</span>`;
     if (isLast) {
       crumbHTML += `<span class="drive-crumb-current">${escapeHtml(node.name)}</span>`;
@@ -212,7 +206,7 @@ function renderDrive() {
 
   crumbEl.innerHTML = crumbHTML;
 
-  // Content — folders or empty
+  // Content
   if (!current.folders || !current.folders.length) {
     contentEl.innerHTML = `<div class="drive-empty">This folder is empty.</div>`;
   } else {
@@ -231,11 +225,10 @@ function renderDrive() {
       </div>
     `;
 
-    // Folder click → navigate deeper
     contentEl.querySelectorAll('.drive-item').forEach(btn => {
       btn.addEventListener('click', () => {
         const idx = parseInt(btn.dataset.index, 10);
-        currentStack.push(current.folders[idx]);
+        driveStack.push(current.folders[idx]);
         renderDrive();
       });
     });
@@ -245,7 +238,7 @@ function renderDrive() {
   crumbEl.querySelectorAll('.drive-crumb-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const depth = parseInt(btn.dataset.depth, 10);
-      currentStack = currentStack.slice(0, depth + 1);
+      driveStack = driveStack.slice(0, depth + 1);
       renderDrive();
     });
   });
