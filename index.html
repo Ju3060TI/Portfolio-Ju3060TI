@@ -48,7 +48,7 @@
     <div id="projects-list">
       <div class="section-head">
         <h2>Projects</h2>
-        <p class="section-sub">A selection of software I've built.</p>
+        <p class="section-sub">Core systems work and shipped software.</p>
       </div>
 
       <div class="list">
@@ -56,45 +56,45 @@
         <button class="item" data-project="neron">
           <div class="item-head">
             <h3>NERON AI</h3>
-            <span class="item-tag">Local inference engine</span>
+            <span class="item-status planning">In Planning</span>
           </div>
-          <p>Multi-agent system with 22B parameters running fully local on a single GPU.</p>
-          <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+          <p class="item-sub">Custom Inference Engine &amp; SMoE Architecture</p>
+          <ul class="tags"><li>Rust</li><li>CUDA</li><li>SMoE</li><li>IPC</li></ul>
         </button>
 
         <button class="item" data-project="blocks">
           <div class="item-head">
             <h3>MaJuTiKi: Blocks</h3>
-            <span class="item-tag">3D voxel engine</span>
+            <span class="item-status wip">Under Construction</span>
           </div>
-          <p>Real-time engine for infinite voxel worlds with procedurally generated terrain.</p>
+          <p class="item-sub">3D Voxel &amp; Automation Engine</p>
           <ul class="tags"><li>C#</li><li>GLSL</li><li>Vulkan</li></ul>
         </button>
 
         <button class="item" data-project="solis">
           <div class="item-head">
             <h3>Solis Shader Family</h3>
-            <span class="item-tag">Shader collection</span>
+            <span class="item-status wip">Mixed</span>
           </div>
-          <p>A family of real-time shaders sharing a common lighting core and modular pipeline.</p>
+          <p class="item-sub">Modular Real-Time Shaders</p>
           <ul class="tags"><li>GLSL</li><li>Vulkan</li></ul>
         </button>
 
         <button class="item" data-project="moerser">
           <div class="item-head">
             <h3>Mörser-Karl GX</h3>
-            <span class="item-tag">Custom web browser</span>
+            <span class="item-status live">Live</span>
           </div>
-          <p>Isolated browser with its own interface and a built-in access shield.</p>
+          <p class="item-sub">Isolated Kiosk Web Browser Environment</p>
           <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
         </button>
 
         <button class="item" data-project="flarechat">
           <div class="item-head">
             <h3>Flarechat</h3>
-            <span class="item-tag">Web application</span>
+            <span class="item-status live">Live</span>
           </div>
-          <p>Chat platform with groups, friend system and a private mode.</p>
+          <p class="item-sub">WebSocket-Powered Stealth Chat Platform</p>
           <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
         </button>
 
@@ -105,22 +105,32 @@
     <div class="detail" data-detail="neron" hidden>
       <button class="back" data-back>← Back</button>
       <div class="detail-head">
-        <h2>NERON AI</h2>
-        <p class="detail-tag">Local inference engine</p>
+        <div class="detail-head-row">
+          <h2>NERON AI</h2>
+          <span class="item-status planning">In Planning</span>
+        </div>
+        <p class="detail-tag">Custom Inference Engine &amp; Sparse Mixture-of-Experts Architecture</p>
       </div>
       <div class="detail-body">
-        <p>NERON is a fully local inference engine built around a 22B parameter sparse mixture-of-experts architecture. It runs entirely on a single consumer GPU without any cloud dependency.</p>
-        <h3>What it does</h3>
-        <p>Multiple specialized agents run in parallel and route requests through a shared memory bus. The entire pipeline stays on-device — no network calls, no external APIs.</p>
-        <h3>Technical highlights</h3>
+        <p>A ground-up inference engine built in Rust around a proprietary Sparse Mixture-of-Experts (SMoE) architecture. Designed for local execution on consumer hardware — no cloud, no external APIs.</p>
+
+        <h3>Architecture</h3>
         <ul>
-          <li>Zero-copy shared memory IPC between agents</li>
-          <li>Sub-4ms latency per inference step</li>
-          <li>Sparse routing to keep VRAM usage low</li>
-          <li>Written from scratch in Rust with custom CUDA kernels</li>
+          <li>Custom SMoE routing with dynamic token-level gating</li>
+          <li>Activates exactly 55B parameters per inference step — no wasted compute</li>
+          <li>Zero-copy shared memory IPC protocol targeting sub-5ms latency between agents</li>
+          <li>Purpose-built for multi-agent workloads (pathfinding, tactical decision systems)</li>
         </ul>
+
+        <h3>Implementation</h3>
+        <ul>
+          <li>Native Rust core with custom CUDA kernels via Rust FFI</li>
+          <li>Direct control over memory layout and scheduling — no framework overhead</li>
+          <li>Designed from the ground up for deterministic latency under load</li>
+        </ul>
+
         <h3>Stack</h3>
-        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li><li>ONNX</li></ul>
+        <ul class="tags"><li>Rust</li><li>CUDA</li><li>SMoE Architecture</li><li>Systems Programming</li><li>IPC</li></ul>
       </div>
     </div>
 
@@ -128,22 +138,32 @@
     <div class="detail" data-detail="blocks" hidden>
       <button class="back" data-back>← Back</button>
       <div class="detail-head">
-        <h2>MaJuTiKi: Blocks</h2>
-        <p class="detail-tag">3D voxel engine</p>
+        <div class="detail-head-row">
+          <h2>MaJuTiKi: Blocks</h2>
+          <span class="item-status wip">Under Construction</span>
+        </div>
+        <p class="detail-tag">3D Voxel &amp; Automation Engine</p>
       </div>
       <div class="detail-body">
-        <p>A real-time voxel engine designed for infinite worlds. Terrain is generated procedurally on the fly with no loading screens and constant memory usage.</p>
-        <h3>What it does</h3>
-        <p>Worlds are computed from closed-form fractal functions, meaning the same coordinates always produce the same terrain — no storage needed, no loading.</p>
-        <h3>Technical highlights</h3>
+        <p>A high-performance custom voxel engine written in C# and Vulkan. Built for infinite worlds that combine sandbox building, factory automation and survival-scale simulation in a single runtime.</p>
+
+        <h3>Architecture</h3>
         <ul>
-          <li>Closed-form fractal terrain generation</li>
-          <li>Heap-allocation-free render loop</li>
-          <li>Custom GLSL shaders for chunked rendering</li>
-          <li>Infinite world with no visible boundaries</li>
+          <li>Infinite terrain generated in RAM-lean form via closed-form fractal functions</li>
+          <li>Hybrid delta-storage system — only modified blocks are persisted, everything else stays procedural</li>
+          <li>Heap-allocation-free render loop for stable frame times at scale</li>
+          <li>Targets millions of simultaneously moving parts without frame drops</li>
         </ul>
+
+        <h3>Implementation</h3>
+        <ul>
+          <li>Custom Vulkan renderer with chunked GLSL shaders</li>
+          <li>Deterministic world state: identical coordinates always produce identical terrain</li>
+          <li>Engineering scope spans Minecraft-style voxels, Satisfactory-tier automation, 7DTD-scale persistence</li>
+        </ul>
+
         <h3>Stack</h3>
-        <ul class="tags"><li>C#</li><li>GLSL</li><li>Vulkan</li></ul>
+        <ul class="tags"><li>C#</li><li>GLSL</li><li>Vulkan</li><li>Procedural Generation</li></ul>
       </div>
     </div>
 
@@ -151,20 +171,23 @@
     <div class="detail" data-detail="solis" hidden>
       <button class="back" data-back>← Back</button>
       <div class="detail-head">
-        <h2>Solis Shader Family</h2>
-        <p class="detail-tag">Shader collection</p>
+        <div class="detail-head-row">
+          <h2>Solis Shader Family</h2>
+          <span class="item-status wip">Mixed</span>
+        </div>
+        <p class="detail-tag">Modular Real-Time Shaders</p>
       </div>
       <div class="detail-body">
-        <p>A family of real-time shaders sharing a common lighting core and modular pipeline. Each variant reuses the same base — only the surface model and feature set change.</p>
+        <p>A modular shader collection built on a shared, optimized lighting core. Each variant reuses the same base — only the surface model and feature set scale up.</p>
 
         <h3>Variants</h3>
 
         <div class="variant">
           <div class="variant-head">
             <h4>SolisLite</h4>
-            <span class="variant-status live">Live</span>
+            <span class="variant-status beta">Beta</span>
           </div>
-          <p>Lightweight variant tuned for low-end hardware. Available now on CurseForge and Modrinth.</p>
+          <p>Lightweight build tuned for low-end hardware. Publicly available on CurseForge and Modrinth.</p>
           <div class="links" style="margin-top:12px">
             <a href="https://www.curseforge.com/minecraft/shaders/solislite" target="_blank" rel="noopener">CurseForge</a>
             <a href="https://modrinth.com/shader/solislite" target="_blank" rel="noopener">Modrinth</a>
@@ -174,21 +197,28 @@
         <div class="variant">
           <div class="variant-head">
             <h4>Solis</h4>
-            <span class="variant-status wip">Under construction</span>
+            <span class="variant-status wip">In Development</span>
           </div>
-          <p>Full version with extended lighting, volumetric effects and a wider material system.</p>
+          <p>Full variant with volumetric effects and an extended material system.</p>
         </div>
 
         <div class="variant">
           <div class="variant-head">
             <h4>SolisRay</h4>
-            <span class="variant-status wip">Under construction</span>
+            <span class="variant-status wip">In Development</span>
           </div>
-          <p>Ray-traced variant built on the same core, targeting real-time path tracing.</p>
+          <p>Hardware-accelerated real-time path tracing built on the same core.</p>
         </div>
 
+        <h3>Implementation</h3>
+        <ul>
+          <li>Custom Vulkan pipeline with a unified lighting model across all variants</li>
+          <li>Modular stages — swap surface model without touching the core</li>
+          <li>Designed for graceful degradation: same look, different hardware budgets</li>
+        </ul>
+
         <h3>Stack</h3>
-        <ul class="tags"><li>GLSL</li><li>Vulkan</li></ul>
+        <ul class="tags"><li>GLSL</li><li>Vulkan</li><li>Graphics Programming</li></ul>
       </div>
     </div>
 
@@ -196,22 +226,32 @@
     <div class="detail" data-detail="moerser" hidden>
       <button class="back" data-back>← Back</button>
       <div class="detail-head">
-        <h2>Mörser-Karl GX</h2>
-        <p class="detail-tag">Custom web browser</p>
+        <div class="detail-head-row">
+          <h2>Mörser-Karl GX</h2>
+          <span class="item-status live">Live</span>
+        </div>
+        <p class="detail-tag">Isolated Kiosk Web Browser Environment</p>
       </div>
       <div class="detail-body">
-        <p>A self-contained browser with its own shell, custom interface and a built-in access shield. Designed as a sandboxed environment for private web apps that shouldn't touch the regular web.</p>
-        <h3>What it does</h3>
-        <p>Everything runs inside an isolated shell. Only whitelisted apps are reachable — the regular internet stays out. Its own error page doubles as an access gate.</p>
-        <h3>Technical highlights</h3>
+        <p>A standalone browser shell built on C#/.NET/WebView, engineered as a fully isolated sandbox for private web applications. The regular internet is unreachable by design — no shared cookies, no shared caches, no leakage into the host system.</p>
+
+        <h3>Architecture</h3>
         <ul>
-          <li>Custom UI layer over WebView</li>
-          <li>Fake error page as access shield</li>
-          <li>Isolated session — no shared cookies with system browser</li>
-          <li>Hosts internal apps like Flarechat</li>
+          <li>Custom UI layer sitting directly on the WebView runtime</li>
+          <li>Fake error screen serves as an Access Shield Gateway — a deliberate misdirection layer that hides authenticated apps behind a plausible dead end</li>
+          <li>Per-session isolation: nothing persists outside the shell</li>
+          <li>Designed to host internal tools and private applications that must never touch the open web</li>
         </ul>
+
+        <h3>Implementation</h3>
+        <ul>
+          <li>Native C#/.NET shell with full control over navigation and lifecycle</li>
+          <li>Acts as the sole runtime host for Flarechat and other internal apps</li>
+          <li>Sandboxing model treats every external request as hostile by default</li>
+        </ul>
+
         <h3>Stack</h3>
-        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li><li>App Sandboxing</li></ul>
       </div>
     </div>
 
@@ -219,20 +259,30 @@
     <div class="detail" data-detail="flarechat" hidden>
       <button class="back" data-back>← Back</button>
       <div class="detail-head">
-        <h2>Flarechat</h2>
-        <p class="detail-tag">Web application</p>
+        <div class="detail-head-row">
+          <h2>Flarechat</h2>
+          <span class="item-status live">Live</span>
+        </div>
+        <p class="detail-tag">WebSocket-Powered Stealth Chat Platform</p>
       </div>
       <div class="detail-body">
-        <p>A chat platform with groups, a friend system based on 6-digit IDs and a built-in stealth mode. Runs entirely inside the Mörser-Karl GX browser environment.</p>
-        <h3>What it does</h3>
-        <p>Users add each other via short IDs, chat in groups or directly, and can toggle a private mode that hides the interface behind a decoy view.</p>
-        <h3>Technical highlights</h3>
+        <p>A real-time messenger built natively for the Mörser-Karl GX sandbox. Runs entirely inside the isolated browser shell — no external exposure, no third-party dependencies.</p>
+
+        <h3>Architecture</h3>
         <ul>
-          <li>Real-time messaging over WebSockets</li>
-          <li>6-digit ID friend system</li>
+          <li>WebSocket transport for low-latency group and peer-ID messaging</li>
+          <li>Friend system based on short 6-digit identifiers</li>
           <li>Group chats with role handling</li>
-          <li>Integrated stealth mode</li>
+          <li>Stealth Mode — instantly hides the interface behind an inconspicuous decoy view</li>
         </ul>
+
+        <h3>Implementation</h3>
+        <ul>
+          <li>TypeScript client, Node.js backend</li>
+          <li>Built for the sandbox first: assumes the runtime is untrusted and isolated</li>
+          <li>Zero-config deployment inside Mörser-Karl GX — no external URLs, no CDN calls</li>
+        </ul>
+
         <h3>Stack</h3>
         <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
       </div>
