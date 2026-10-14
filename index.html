@@ -1,346 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Ju3060TI</title>
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-<meta name="description" content="Projects by Ju3060TI — systems programming, graphics, local AI inference.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <div class="wrap">
-    <a href="/" class="logo">Portfolio <span>Ju3060TI</span></a>
-    <nav class="tabs">
-      <button class="tab active" data-tab="home">Home</button>
-      <button class="tab" data-tab="projects">Projects</button>
-      <button class="tab" data-tab="downloads">Downloads</button>
-      <button class="tab" data-tab="contact">Contact</button>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<!-- HOME -->
-<section class="panel active" data-panel="home">
-  <div class="wrap">
-    <div class="home">
-      <h1>Ju3060TI</h1>
-      <p class="lead">Developer building performant software from the ground up — systems programming, real-time graphics, local AI inference.</p>
-      <div class="home-actions">
-        <button class="btn primary" data-goto="projects">View projects</button>
-        <button class="btn" data-goto="downloads">Downloads</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="panel" data-panel="projects">
-  <div class="wrap">
-
-    <!-- LIST -->
-    <div id="projects-list">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <p class="section-sub">Core systems work and shipped software.</p>
-      </div>
-
-      <div class="list">
-
-        <button class="item" data-project="neron">
-          <div class="item-head">
-            <h3>NERON AI</h3>
-            <span class="item-status planning">In Planning</span>
-          </div>
-          <p class="item-sub">Custom Inference Engine &amp; SMoE Architecture</p>
-          <ul class="tags"><li>Rust</li><li>CUDA</li><li>SMoE</li><li>IPC</li></ul>
-        </button>
-
-        <button class="item" data-project="blocks">
-          <div class="item-head">
-            <h3>MaJuTiKi: Blocks</h3>
-            <span class="item-status wip">Under Construction</span>
-          </div>
-          <p class="item-sub">3D Voxel &amp; Automation Engine</p>
-          <ul class="tags"><li>C#</li><li>GLSL</li><li>Vulkan</li></ul>
-        </button>
-
-        <button class="item" data-project="solis">
-          <div class="item-head">
-            <h3>Solis Shader Family</h3>
-            <span class="item-status wip">Mixed</span>
-          </div>
-          <p class="item-sub">Modular Real-Time Shaders</p>
-          <ul class="tags"><li>GLSL</li><li>Vulkan</li></ul>
-        </button>
-
-        <button class="item" data-project="moerser">
-          <div class="item-head">
-            <h3>Mörser-Karl GX</h3>
-            <span class="item-status live">Live</span>
-          </div>
-          <p class="item-sub">Isolated Browser-in-Browser Web Environment</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-        </button>
-
-        <button class="item" data-project="flarechat">
-          <div class="item-head">
-            <h3>Flarechat</h3>
-            <span class="item-status live">Live</span>
-          </div>
-          <p class="item-sub">Stealth Chat Platform</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-        </button>
-
-      </div>
-
-      <!-- NEW: GitHub repos section -->
-      <div class="section-head" style="margin-top:96px">
-        <h2>From GitHub</h2>
-        <p class="section-sub">Live repositories pulled directly from the GitHub API.</p>
-      </div>
-      <div id="github-repos" class="repo-grid"></div>
-
-    </div>
-
-    <!-- DETAIL: NERON -->
-    <div class="detail" data-detail="neron" hidden>
-      <button class="back" data-back>← Back</button>
-      <div class="detail-head">
-        <div class="detail-head-row">
-          <h2>NERON AI</h2>
-          <span class="item-status planning">In Planning</span>
-        </div>
-        <p class="detail-tag">Custom Inference Engine &amp; Sparse Mixture-of-Experts Architecture</p>
-      </div>
-      <div class="detail-body">
-        <p>A ground-up inference engine built in Rust around a proprietary Sparse Mixture-of-Experts (SMoE) architecture. Designed for local execution on consumer hardware — no cloud, no external APIs.</p>
-
-        <h3>Architecture</h3>
-        <ul>
-          <li>Custom SMoE routing with dynamic token-level gating</li>
-          <li>Activates exactly 55B parameters per inference step — no wasted compute</li>
-          <li>Zero-copy shared memory IPC protocol targeting sub-5ms latency between agents</li>
-          <li>Purpose-built for multi-agent workloads (pathfinding, tactical decision systems)</li>
-        </ul>
-
-        <h3>Implementation</h3>
-        <ul>
-          <li>Native Rust core with custom CUDA kernels via Rust FFI</li>
-          <li>Direct control over memory layout and scheduling — no framework overhead</li>
-          <li>Designed from the ground up for deterministic latency under load</li>
-        </ul>
-
-        <h3>Stack</h3>
-        <ul class="tags"><li>Rust</li><li>CUDA</li><li>SMoE Architecture</li><li>Systems Programming</li><li>IPC</li></ul>
-      </div>
-    </div>
-
-    <!-- DETAIL: BLOCKS -->
-    <div class="detail" data-detail="blocks" hidden>
-      <button class="back" data-back>← Back</button>
-      <div class="detail-head">
-        <div class="detail-head-row">
-          <h2>MaJuTiKi: Blocks</h2>
-          <span class="item-status wip">Under Construction</span>
-        </div>
-        <p class="detail-tag">3D Voxel &amp; Automation Engine</p>
-      </div>
-      <div class="detail-body">
-        <p>A high-performance custom voxel engine written in C# and Vulkan. Built for infinite worlds that combine sandbox building, factory automation and survival-scale simulation in a single runtime.</p>
-
-        <h3>Architecture</h3>
-        <ul>
-          <li>Infinite terrain generated in RAM-lean form via closed-form fractal functions</li>
-          <li>Hybrid delta-storage system — only modified blocks are persisted, everything else stays procedural</li>
-          <li>Heap-allocation-free render loop for stable frame times at scale</li>
-          <li>Targets millions of simultaneously moving parts without frame drops</li>
-        </ul>
-
-        <h3>Implementation</h3>
-        <ul>
-          <li>Custom Vulkan renderer with chunked GLSL shaders</li>
-          <li>Deterministic world state: identical coordinates always produce identical terrain</li>
-          <li>Engineering scope spans Minecraft-style voxels, Satisfactory-tier automation, 7DTD-scale persistence</li>
-        </ul>
-
-        <h3>Stack</h3>
-        <ul class="tags"><li>C#</li><li>GLSL</li><li>Vulkan</li><li>Procedural Generation</li></ul>
-      </div>
-    </div>
-
-    <!-- DETAIL: SOLIS -->
-    <div class="detail" data-detail="solis" hidden>
-      <button class="back" data-back>← Back</button>
-      <div class="detail-head">
-        <div class="detail-head-row">
-          <h2>Solis Shader Family</h2>
-          <span class="item-status wip">Mixed</span>
-        </div>
-        <p class="detail-tag">Modular Real-Time Shaders</p>
-      </div>
-      <div class="detail-body">
-        <p>A modular shader collection built on a shared, optimized lighting core. Each variant reuses the same base — only the surface model and feature set scale up.</p>
-
-        <h3>Variants</h3>
-
-        <div class="variant">
-          <div class="variant-head">
-            <h4>SolisLite</h4>
-            <span class="variant-status beta">Beta</span>
-          </div>
-          <p>Lightweight build tuned for low-end hardware. Publicly available on CurseForge and Modrinth.</p>
-          <div class="links" style="margin-top:12px">
-            <a href="https://www.curseforge.com/minecraft/shaders/solislite" target="_blank" rel="noopener">CurseForge</a>
-            <a href="https://modrinth.com/shader/solislite" target="_blank" rel="noopener">Modrinth</a>
-          </div>
-        </div>
-
-        <div class="variant">
-          <div class="variant-head">
-            <h4>Solis</h4>
-            <span class="variant-status wip">In Development</span>
-          </div>
-          <p>Full variant with volumetric effects and an extended material system.</p>
-        </div>
-
-        <div class="variant">
-          <div class="variant-head">
-            <h4>SolisRay</h4>
-            <span class="variant-status wip">In Development</span>
-          </div>
-          <p>Hardware-accelerated real-time path tracing built on the same core.</p>
-        </div>
-
-        <h3>Implementation</h3>
-        <ul>
-          <li>Custom Vulkan pipeline with a unified lighting model across all variants</li>
-          <li>Modular stages — swap surface model without touching the core</li>
-          <li>Designed for graceful degradation: same look, different hardware budgets</li>
-        </ul>
-
-        <h3>Stack</h3>
-        <ul class="tags"><li>GLSL</li><li>Vulkan</li><li>Graphics Programming</li></ul>
-      </div>
-    </div>
-
-    <!-- DETAIL: MÖRSER-KARL GX -->
-    <div class="detail" data-detail="moerser" hidden>
-      <button class="back" data-back>← Back</button>
-      <div class="detail-head">
-        <div class="detail-head-row">
-          <h2>Mörser-Karl GX</h2>
-          <span class="item-status live">Live</span>
-        </div>
-        <p class="detail-tag">Isolated Browser-in-Browser Web Environment</p>
-      </div>
-      <div class="detail-body">
-        <p>A browser-inside-the-browser experience, built entirely as a web application. Simulates its own isolated shell on top of the existing browser, giving private web apps a closed environment that never touches the open internet.</p>
-
-        <h3>Architecture</h3>
-        <ul>
-          <li>Custom chrome, navigation and app shell built from scratch on top of the browser runtime</li>
-          <li>Fake error screen serves as an Access Shield Gateway — a deliberate misdirection layer that hides authenticated apps behind a plausible dead end</li>
-          <li>Sandboxed app surface: only whitelisted internal apps are reachable</li>
-          <li>No outbound traffic to the regular web — access to external sites is disabled by design</li>
-        </ul>
-
-        <h3>Implementation</h3>
-        <ul>
-          <li>Vanilla HTML, CSS and JavaScript — no framework dependencies</li>
-          <li>Acts as the sole runtime host for Flarechat and other internal apps</li>
-          <li>Session isolation: no shared storage, cookies or caches with the host browser</li>
-        </ul>
-
-        <h3>Stack</h3>
-        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>App Sandboxing</li></ul>
-      </div>
-    </div>
-
-    <!-- DETAIL: FLARECHAT -->
-    <div class="detail" data-detail="flarechat" hidden>
-      <button class="back" data-back>← Back</button>
-      <div class="detail-head">
-        <div class="detail-head-row">
-          <h2>Flarechat</h2>
-          <span class="item-status live">Live</span>
-        </div>
-        <p class="detail-tag">Stealth Chat Platform</p>
-      </div>
-      <div class="detail-body">
-        <p>A real-time messenger that runs natively inside the Mörser-Karl GX browser-in-browser environment. Built purely on web primitives — no backend framework, no external services.</p>
-
-        <h3>Architecture</h3>
-        <ul>
-          <li>Real-time messaging over WebSockets for low-latency group and peer-ID chats</li>
-          <li>Friend system based on short 6-digit identifiers</li>
-          <li>Group chats with role handling</li>
-          <li>Stealth Mode — instantly hides the interface behind an inconspicuous decoy view</li>
-        </ul>
-
-        <h3>Implementation</h3>
-        <ul>
-          <li>Pure JavaScript client — no framework, no build step</li>
-          <li>Runs entirely inside the Mörser-Karl GX sandbox</li>
-          <li>Zero-config deployment: no external URLs, no CDN calls, no third-party dependencies</li>
-        </ul>
-
-        <h3>Stack</h3>
-        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>WebSockets</li></ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- DOWNLOADS -->
 <section class="panel" data-panel="downloads">
   <div class="wrap">
     <div class="section-head">
       <h2>Downloads</h2>
-      <p class="section-sub">Builds and releases — games, shaders and tools.</p>
+      <p class="section-sub">Builds and releases — browse the folder structure directly.</p>
     </div>
-    <a href="https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing"
-       target="_blank" rel="noopener" class="btn primary">
-      Open Drive folder
-    </a>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section class="panel" data-panel="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Contact</h2>
-      <p class="section-sub">For project inquiries, internships or collaboration.</p>
-    </div>
-    <div class="construction">
-      <div class="construction-icon">⚙</div>
-      <h3>Currently under construction</h3>
-      <p>Contact options are being set up. In the meantime you can reach out via GitHub.</p>
-      <div class="links">
-        <a href="https://github.com/Ju3060TI" target="_blank" rel="noopener">GitHub</a>
+    <div class="drive-preview">
+
+      <div class="drive-bar">
+        <div class="drive-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="drive-url">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          drive.google.com / Portfolio Ju3060TI
+        </div>
+        <a href="https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing"
+           target="_blank" rel="noopener" class="drive-open-btn">
+          Open in Drive
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <path d="M15 3h6v6"/>
+            <path d="M10 14L21 3"/>
+          </svg>
+        </a>
       </div>
+
+      <div class="drive-body">
+        <div class="drive-location" id="drive-crumb"></div>
+        <div class="drive-content" id="drive-content"></div>
+      </div>
+
     </div>
   </div>
 </section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>© 2026 Ju3060TI</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
