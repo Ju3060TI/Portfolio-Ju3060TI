@@ -3,122 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ju3060TI — Developer</title>
-<meta name="description" content="Developer focused on systems programming, graphics and local AI inference.">
+<title>Portfolio Ju3060TI</title>
+<meta name="description" content="Projects by Ju3060TI — systems programming, graphics, local AI inference.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a href="/" class="logo">Ju<span>3060TI</span></a>
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <a href="/" class="logo">Portfolio <span>Ju3060TI</span></a>
+    <nav class="tabs">
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="projects">Projects</button>
+      <button class="tab" data-tab="downloads">Downloads</button>
+      <button class="tab" data-tab="contact">Contact</button>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="hero">
+<!-- HOME -->
+<section class="panel active" data-panel="home">
   <div class="wrap">
-    <p class="tag">Developer &amp; Systems Programmer</p>
-    <h1>I build performant software from the ground up.</h1>
-    <p class="sub">Systems programming, real-time graphics and local AI inference. Currently at HTL Leonding, Computer Science.</p>
-    <div class="actions">
-      <a href="#work" class="btn primary">View work</a>
-      <a href="mailto:hello@example.com" class="btn">Get in touch</a>
+    <div class="home">
+      <h1>Ju3060TI</h1>
+      <p class="lead">Developer building performant software from the ground up — systems programming, real-time graphics, local AI inference.</p>
+      <div class="home-actions">
+        <button class="btn primary" data-goto="projects">View projects</button>
+        <button class="btn" data-goto="downloads">Downloads</button>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="work" class="section">
+<!-- PROJECTS -->
+<section class="panel" data-panel="projects">
   <div class="wrap">
     <div class="section-head">
-      <h2>Selected work</h2>
-      <p class="muted">A focused selection of current projects.</p>
+      <h2>Projects</h2>
+      <p class="section-sub">A selection of software I've built.</p>
     </div>
-    <div class="grid">
+    <div class="list">
 
-      <a class="card" href="#">
-        <div class="thumb"><img src="assets/neron.png" alt="NERON"></div>
-        <div class="card-body">
+      <article class="item">
+        <div class="item-head">
           <h3>NERON AI</h3>
-          <p class="role">Local inference engine</p>
-          <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
-          <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+          <span class="item-tag">Local inference engine</span>
         </div>
-      </a>
+        <p>Multi-agent system with 22B parameters running fully local on a single GPU. Focused on low latency and efficient inter-process memory.</p>
+        <ul class="tags"><li>Rust</li><li>CUDA</li><li>IPC</li></ul>
+      </article>
 
-      <a class="card" href="#">
-        <div class="thumb"><img src="assets/blocks.png" alt="Blocks"></div>
-        <div class="card-body">
+      <article class="item">
+        <div class="item-head">
           <h3>Blocks</h3>
-          <p class="role">3D voxel engine</p>
-          <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
-          <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+          <span class="item-tag">3D voxel engine</span>
         </div>
-      </a>
+        <p>Real-time engine for infinite voxel worlds. Terrain generated procedurally with no loading times and constant memory usage.</p>
+        <ul class="tags"><li>C++</li><li>GLSL</li><li>OpenGL</li></ul>
+      </article>
 
-      <a class="card" href="#">
-        <div class="thumb"><img src="assets/browser.png" alt="Mörser-Karl GX"></div>
-        <div class="card-body">
+      <article class="item">
+        <div class="item-head">
           <h3>Mörser-Karl GX</h3>
-          <p class="role">Desktop application</p>
-          <p>Isolated web browser with a custom interface and built-in access protection. Built as a secure shell for in-house web apps.</p>
-          <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+          <span class="item-tag">Desktop application</span>
         </div>
-      </a>
+        <p>Isolated web browser with a custom interface and built-in access protection. Built as a secure shell for in-house web apps.</p>
+        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+      </article>
 
-      <a class="card" href="#">
-        <div class="thumb"><img src="assets/flarechat.png" alt="Flarechat"></div>
-        <div class="card-body">
+      <article class="item">
+        <div class="item-head">
           <h3>Flarechat</h3>
-          <p class="role">Web application</p>
-          <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the custom browser environment.</p>
-          <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+          <span class="item-tag">Web application</span>
         </div>
+        <p>Chat platform with groups, friend system and a private mode. Runs entirely inside the custom browser environment.</p>
+        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section class="panel" data-panel="downloads">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Downloads</h2>
+      <p class="section-sub">Builds and releases — games, shaders and tools.</p>
+    </div>
+
+    <div class="drive-toolbar">
+      <a href="https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing"
+         target="_blank" rel="noopener" class="btn primary">
+        Open in Drive
       </a>
+    </div>
 
+    <div class="drive-embed">
+      <iframe
+        src="https://drive.google.com/embeddedfolderview?id=17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw#grid"
+        title="Google Drive folder"
+        loading="lazy"
+      ></iframe>
     </div>
   </div>
 </section>
 
-<section id="about" class="section alt">
-  <div class="wrap narrow">
-    <h2>About</h2>
-    <p>I program with a focus on systems languages and performance-critical applications. My interest is in how software works at the lowest level — from memory management to graphics pipelines to inference on local hardware.</p>
-    <p>Currently attending HTL Leonding with a focus on computer science. Alongside school I work on personal projects in systems programming, computer graphics and machine learning.</p>
-    <div class="skills">
-      <div>
-        <h4>Languages</h4>
-        <ul><li>Rust</li><li>C++</li><li>C#</li><li>TypeScript</li></ul>
-      </div>
-      <div>
-        <h4>Focus</h4>
-        <ul><li>Systems programming</li><li>Computer graphics</li><li>GPU computing</li><li>Inference optimization</li></ul>
-      </div>
-      <div>
-        <h4>Tools</h4>
-        <ul><li>Git</li><li>CMake</li><li>CUDA Toolkit</li><li>Linux</li></ul>
-      </div>
+<!-- CONTACT -->
+<section class="panel" data-panel="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <p class="section-sub">For project inquiries, internships or collaboration.</p>
     </div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <div class="wrap narrow center">
-    <h2>Contact</h2>
-    <p class="muted">For project inquiries, internships or collaboration.</p>
-    <a href="mailto:hello@example.com" class="btn primary">Send an email</a>
-    <div class="links">
-      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="contact">
+      <a href="mailto:ju3060ti@gmail.com" class="mail">ju3060ti@gmail.com</a>
+      <div class="links">
+        <a href="https://github.com/Ju3060TI" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing" target="_blank" rel="noopener">Downloads</a>
+      </div>
     </div>
   </div>
 </section>
@@ -128,9 +136,9 @@
 <footer>
   <div class="wrap">
     <p>© 2026 Ju3060TI</p>
-    <p><a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></p>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
