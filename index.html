@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Ju3060TI</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
 <meta name="description" content="Projects by Ju3060TI — systems programming, graphics, local AI inference.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,8 +87,8 @@
             <h3>Mörser-Karl GX</h3>
             <span class="item-status live">Live</span>
           </div>
-          <p class="item-sub">Isolated Kiosk Web Browser Environment</p>
-          <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li></ul>
+          <p class="item-sub">Isolated Browser-in-Browser Web Environment</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
         </button>
 
         <button class="item" data-project="flarechat">
@@ -94,11 +96,19 @@
             <h3>Flarechat</h3>
             <span class="item-status live">Live</span>
           </div>
-          <p class="item-sub">WebSocket-Powered Stealth Chat Platform</p>
-          <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+          <p class="item-sub">Stealth Chat Platform</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
         </button>
 
       </div>
+
+      <!-- NEW: GitHub repos section -->
+      <div class="section-head" style="margin-top:96px">
+        <h2>From GitHub</h2>
+        <p class="section-sub">Live repositories pulled directly from the GitHub API.</p>
+      </div>
+      <div id="github-repos" class="repo-grid"></div>
+
     </div>
 
     <!-- DETAIL: NERON -->
@@ -230,28 +240,28 @@
           <h2>Mörser-Karl GX</h2>
           <span class="item-status live">Live</span>
         </div>
-        <p class="detail-tag">Isolated Kiosk Web Browser Environment</p>
+        <p class="detail-tag">Isolated Browser-in-Browser Web Environment</p>
       </div>
       <div class="detail-body">
-        <p>A standalone browser shell built on C#/.NET/WebView, engineered as a fully isolated sandbox for private web applications. The regular internet is unreachable by design — no shared cookies, no shared caches, no leakage into the host system.</p>
+        <p>A browser-inside-the-browser experience, built entirely as a web application. Simulates its own isolated shell on top of the existing browser, giving private web apps a closed environment that never touches the open internet.</p>
 
         <h3>Architecture</h3>
         <ul>
-          <li>Custom UI layer sitting directly on the WebView runtime</li>
+          <li>Custom chrome, navigation and app shell built from scratch on top of the browser runtime</li>
           <li>Fake error screen serves as an Access Shield Gateway — a deliberate misdirection layer that hides authenticated apps behind a plausible dead end</li>
-          <li>Per-session isolation: nothing persists outside the shell</li>
-          <li>Designed to host internal tools and private applications that must never touch the open web</li>
+          <li>Sandboxed app surface: only whitelisted internal apps are reachable</li>
+          <li>No outbound traffic to the regular web — access to external sites is disabled by design</li>
         </ul>
 
         <h3>Implementation</h3>
         <ul>
-          <li>Native C#/.NET shell with full control over navigation and lifecycle</li>
+          <li>Vanilla HTML, CSS and JavaScript — no framework dependencies</li>
           <li>Acts as the sole runtime host for Flarechat and other internal apps</li>
-          <li>Sandboxing model treats every external request as hostile by default</li>
+          <li>Session isolation: no shared storage, cookies or caches with the host browser</li>
         </ul>
 
         <h3>Stack</h3>
-        <ul class="tags"><li>C#</li><li>.NET</li><li>WebView</li><li>App Sandboxing</li></ul>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>App Sandboxing</li></ul>
       </div>
     </div>
 
@@ -263,14 +273,14 @@
           <h2>Flarechat</h2>
           <span class="item-status live">Live</span>
         </div>
-        <p class="detail-tag">WebSocket-Powered Stealth Chat Platform</p>
+        <p class="detail-tag">Stealth Chat Platform</p>
       </div>
       <div class="detail-body">
-        <p>A real-time messenger built natively for the Mörser-Karl GX sandbox. Runs entirely inside the isolated browser shell — no external exposure, no third-party dependencies.</p>
+        <p>A real-time messenger that runs natively inside the Mörser-Karl GX browser-in-browser environment. Built purely on web primitives — no backend framework, no external services.</p>
 
         <h3>Architecture</h3>
         <ul>
-          <li>WebSocket transport for low-latency group and peer-ID messaging</li>
+          <li>Real-time messaging over WebSockets for low-latency group and peer-ID chats</li>
           <li>Friend system based on short 6-digit identifiers</li>
           <li>Group chats with role handling</li>
           <li>Stealth Mode — instantly hides the interface behind an inconspicuous decoy view</li>
@@ -278,13 +288,13 @@
 
         <h3>Implementation</h3>
         <ul>
-          <li>TypeScript client, Node.js backend</li>
-          <li>Built for the sandbox first: assumes the runtime is untrusted and isolated</li>
-          <li>Zero-config deployment inside Mörser-Karl GX — no external URLs, no CDN calls</li>
+          <li>Pure JavaScript client — no framework, no build step</li>
+          <li>Runs entirely inside the Mörser-Karl GX sandbox</li>
+          <li>Zero-config deployment: no external URLs, no CDN calls, no third-party dependencies</li>
         </ul>
 
         <h3>Stack</h3>
-        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>WebSockets</li></ul>
+        <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>WebSockets</li></ul>
       </div>
     </div>
 
