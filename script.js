@@ -122,3 +122,133 @@ async function loadRepos() {
 }
 
 loadRepos();
+
+/* ============================================================
+   Drive Folder Browser
+   ============================================================
+   Add `link` to any folder object to point a specific tile to
+   its real Drive subfolder. If omitted, the root link is used.
+   ============================================================ */
+const ROOT_LINK = 'https://drive.google.com/drive/folders/17yMk3H0MnS5oIw4Ntv57aWh6cFB37Wpw?usp=sharing';
+
+const DRIVE = {
+  name: 'Portfolio Ju3060TI',
+  link: ROOT_LINK,
+  folders: [
+    {
+      name: 'Builds',
+      link: ROOT_LINK,
+      folders: [
+        {
+          name: 'AI',
+          link: ROOT_LINK,
+          folders: [
+            { name: 'Neron', link: ROOT_LINK, folders: [] }
+          ]
+        },
+        {
+          name: 'Games',
+          link: ROOT_LINK,
+          folders: [
+            { name: 'MaJuTiKi',               link: ROOT_LINK, folders: [] },
+            { name: 'MaJuTiKi: Blocks',       link: ROOT_LINK, folders: [] },
+            { name: 'MaJuTiKi: Fragment',     link: ROOT_LINK, folders: [] },
+            { name: 'MaJuTiKi: Hollow Creek', link: ROOT_LINK, folders: [] }
+          ]
+        },
+        {
+          name: 'Websites',
+          link: ROOT_LINK,
+          folders: [
+            { name: 'FlareChat',              link: ROOT_LINK, folders: [] },
+            { name: 'Mörser-Karl-GX-Browser', link: ROOT_LINK, folders: [] }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'Screenshots / Videos',
+      link: ROOT_LINK,
+      folders: [
+        { name: 'Screenshots', link: ROOT_LINK, folders: [] },
+        { name: 'Videos',      link: ROOT_LINK, folders: [] }
+      ]
+    },
+    {
+      name: 'Archive',
+      link: ROOT_LINK,
+      folders: []
+    }
+  ]
+};
+
+const crumbEl = document.getElementById('drive-crumb');
+const contentEl = document.getElementById('drive-content');
+
+let currentStack = [DRIVE];
+
+function renderDrive() {
+  if (!crumbEl || !contentEl) return;
+
+  const current = currentStack[currentStack.length - 1];
+
+  // Breadcrumb
+  let crumbHTML = `
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>
+    </svg>
+    My Drive
+  `;
+
+  currentStack.forEach((node, i) => {
+    const isLast = i === currentStack.length - 1;
+    crumbHTML += `<span class="drive-sep">/</span>`;
+    if (isLast) {
+      crumbHTML += `<span class="drive-crumb-current">${escapeHtml(node.name)}</span>`;
+    } else {
+      crumbHTML += `<button class="drive-crumb-btn" data-depth="${i}">${escapeHtml(node.name)}</button>`;
+    }
+  });
+
+  crumbEl.innerHTML = crumbHTML;
+
+  // Content — folders or empty
+  if (!current.folders || !current.folders.length) {
+    contentEl.innerHTML = `<div class="drive-empty">This folder is empty.</div>`;
+  } else {
+    contentEl.innerHTML = `
+      <div class="drive-folders">
+        ${current.folders.map((f, i) => `
+          <button class="drive-item" data-index="${i}">
+            <span class="drive-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>
+              </svg>
+            </span>
+            <span class="drive-name">${escapeHtml(f.name)}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+
+    // Folder click → navigate deeper
+    contentEl.querySelectorAll('.drive-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.index, 10);
+        currentStack.push(current.folders[idx]);
+        renderDrive();
+      });
+    });
+  }
+
+  // Breadcrumb click → jump up
+  crumbEl.querySelectorAll('.drive-crumb-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const depth = parseInt(btn.dataset.depth, 10);
+      currentStack = currentStack.slice(0, depth + 1);
+      renderDrive();
+    });
+  });
+}
+
+renderDrive();
